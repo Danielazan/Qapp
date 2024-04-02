@@ -14,7 +14,8 @@ const CustomButton = (props) => {
         {alignItems:props.items},
         {marginTop:props.marginT},
         {justifyContent:"center"},
-        {margin:props.margin}
+        {margin:props.margin},
+        {marginBottom:props.Bmargin}
         // {flex:1}
        
       ]}>

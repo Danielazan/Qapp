@@ -1,5 +1,5 @@
-import React from 'react'
-import { 
+import React, {useState, useEffect} from 'react'
+import {
   View,
   Text,
   ScrollView,
@@ -12,23 +12,35 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Pressable
- } from 'react-native'
+} from 'react-native'
 import image from '../assets/images/steffi-Cj0tPzC5Uic-unsplash.jpg'
 import Svg, { Path } from 'react-native-svg'
 import Logo from '../assets/images/Logo.png'
-
+import CustomInput from '../components/CustomInput'
+import CustomButton from '../components/CustomButton'
 
 const Register = () => {
-  const { height } = useWindowDimensions()
+  const { height, width } = useWindowDimensions()
+
+  const [zndR, setZndR] = useState(false)
+
+  const handleNext = ()=>{
+    setZndR(true)
+  }
+
+  const handleBack = ()=>{
+    setZndR(false)
+  }
+  
   return (
     <View style={styles.container}>
       <View style={styles.top}>
         <View style={styles.box}>
-          <Svg 
-          height='100%' 
-          width="120%" 
-          viewBox='0 100 120 180'
-          style={styles.blueCurve}
+          <Svg
+            height='97%'
+            width='100%'
+            viewBox='60 10 29 171'
+            style={styles.blueCurve}
           >
             <Path
               fill='#1b39a9'
@@ -40,15 +52,224 @@ const Register = () => {
               resizeMode='contain'
             />
 
-            <View>
-                <Text>
-                  The
+            <View style={{ width: '100%', paddingLeft: 12 }}>
+              <Text style={{ fontSize: 24, color: 'white' }}>The</Text>
+              <Text style={{ fontSize: 24, color: 'white' }}>Design</Text>
 
-                  
-                </Text>
+              <Text style={{ fontSize: 24, color: 'white' }}>Company</Text>
             </View>
+
+            {
+              !zndR ? 
+              
+              <View style={styles.inputs}>
+              <Text style={{ fontSize: 20, color: 'white', marginBottom: 12 }}>
+                Frist Name
+              </Text>
+              <CustomInput
+                width={250}
+                placeholder='Enter your Email'
+                Bwidth={2}
+                height={42}
+                Background='#4961ba'
+                Radius={10}
+                marginB={10}
+              />
+
+              <Text style={{ fontSize: 20, color: 'white', marginBottom: 12 }}>
+                Last Name
+              </Text>
+
+              <CustomInput
+                width={250}
+                placeholder='Enter your Email'
+                Bwidth={2}
+                height={42}
+                Background='#4961ba'
+                Radius={10}
+                marginB={10}
+              />
+
+              <Text style={{ fontSize: 20, color: 'white', marginBottom: 12 }}>
+                Phone Nunmber
+              </Text>
+
+              <CustomInput
+                width={250}
+                placeholder='Enter your Email'
+                Bwidth={2}
+                height={42}
+                Background='#4961ba'
+                Radius={10}
+                marginB={10}
+              />
+
+              <Text style={{ fontSize: 20, color: 'white', marginBottom: 12 }}>
+                NIN
+              </Text>
+
+              <CustomInput
+                width={250}
+                placeholder='Enter your Email'
+                Bwidth={2}
+                height={42}
+                Background='#4961ba'
+                Radius={10}
+                marginB={4}
+              />
+            </View> :
+
+            <View style={styles.inputs}>
+              <Text style={{ fontSize: 20, color: 'white', marginBottom: 12 }}>
+                Gender
+              </Text>
+              <CustomInput
+                width={250}
+                placeholder='Enter your Email'
+                Bwidth={2}
+                height={42}
+                Background='#4961ba'
+                Radius={10}
+                marginB={10}
+              />
+
+              <Text style={{ fontSize: 20, color: 'white', marginBottom: 12 }}>
+                Phone Number
+              </Text>
+
+              <CustomInput
+                width={250}
+                placeholder='Enter your Email'
+                Bwidth={2}
+                height={42}
+                Background='#4961ba'
+                Radius={10}
+                marginB={10}
+              />
+
+              <Text style={{ fontSize: 20, color: 'white', marginBottom: 12 }}>
+                PassWord
+              </Text>
+
+              <CustomInput
+                width={250}
+                placeholder='Enter your Email'
+                Bwidth={2}
+                height={42}
+                Background='#4961ba'
+                Radius={10}
+                marginB={10}
+              />
+
+              <Text style={{ fontSize: 20, color: 'white', marginBottom: 12 }}>
+                Comfirm PassWord
+              </Text>
+
+              <CustomInput
+                width={250}
+                placeholder='Enter your Email'
+                Bwidth={2}
+                height={42}
+                Background='#4961ba'
+                Radius={10}
+                marginB={4}
+              />
+            </View>
+            }
           </Svg>
         </View>
+      </View>
+
+      <View style={[styles.down]}>
+      {
+        !zndR ? 
+
+        
+        <View
+          style={{
+            width: '100%',
+            paddingHorizontal: 12,
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems:"center"
+          }}
+        >
+          <CustomButton
+            width='45%'
+            text='Continue'
+            weight={200}
+            textcolor='white'
+            color='black'
+            height={45}
+            Bmargin={20}
+            borderR={10}
+            fontsize={20}
+            items='center'
+            padding={12}
+            onPress={()=> handleNext()}
+          />
+          
+        </View>
+
+        :
+
+        
+        <View
+          style={{
+            width: '100%',
+            paddingHorizontal: 12,
+            flexDirection: 'row',
+            justifyContent:"space-between",
+            alignItems:"center"
+          }}
+        >
+          <CustomButton
+            width='45%'
+            text='Back'
+            weight={200}
+            textcolor='white'
+            color='black'
+            height={45}
+            Bmargin={20}
+            borderR={10}
+            fontsize={20}
+            items='center'
+            padding={12}
+            onPress={()=> handleBack()}
+          />
+          
+          <CustomButton
+            width='45%'
+            text='Next'
+            weight={200}
+            textcolor='white'
+            color='black'
+            height={45}
+            Bmargin={20}
+            borderR={10}
+            fontsize={20}
+            items='center'
+            padding={12}
+            onPress={()=> handleNextP()}
+          />
+        </View>
+      }
+
+
+        <CustomButton
+          width='90%'
+          text='Alreading Have An Account? Login'
+          weight={400}
+          textcolor='green'
+          // color='black'
+          height={55}
+          Bmargin={20}
+          borderR={40}
+          fontsize={20}
+          items='center'
+          padding={14}
+          
+        />
       </View>
     </View>
   )
@@ -60,19 +281,27 @@ const styles = StyleSheet.create({
   },
   top: {
     flex: 1,
-    height: '100%',
+    height: '100%'
     // backgroundColor:"red"
   },
   box: {
     // width: '100%',
     // backgroundColor:"red"
+    // paddingLeft:12
   },
   logo: {
     width: '40%'
   },
-  blueCurve:{
-    // alignItems:"center",
-    // justifyContent:"center"
+  blueCurve: {},
+  down: {
+    width: '100%',
+    // backgroundColor:"red",
+    height: 'auto',
+    alignItems: 'center'
+  },
+  inputs: {
+    marginTop: 18,
+    paddingLeft: 12
   }
 })
 
